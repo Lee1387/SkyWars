@@ -1,0 +1,11 @@
+{
+    "name": "lee1387/skywars",
+    "require": {
+        "pocketmine/pocketmine-mp": "^5.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lee1387\\Skywars\\": "src/"
+        }
+    }
+}
