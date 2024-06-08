@@ -4,7 +4,17 @@ declare(strict_types=1);
 
 namespace Lee1387\Game\Cage\Presets;
 
-class Privacy 
+use pocketmine\block\VanillaBlocks;
+use pocketmine\world\Position;
+
+class Privacy extends DefaultCage
 {
+
+    public function build(Position $position): void 
+    {
+        foreach($this->getBlocks($position) as $block) {
+            $position->getWorld()->setBlock($block, VanillaBlocks::COAL());
+        }
+    }
 
 }
