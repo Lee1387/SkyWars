@@ -6,5 +6,10 @@ namespace Lee1387\Game\Kit;
 
 enum Rarity 
 {
+
+    case COMMON;
+    case RARE;
+    case LEGENDARY;
+    case MYTHIC;
     
 }
