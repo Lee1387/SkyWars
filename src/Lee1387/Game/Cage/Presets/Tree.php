@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace Lee1387\Game\Cage\Presets;
 
+use pocketmine\block\Block;
 use pocketmine\block\VanillaBlocks;
-use pocketmine\world\Position;
 
 class Tree extends DefaultCage
 {
 
-    public function build(Position $position): void 
+    protected function getFillingBlock(): Block 
     {
-        foreach($this->getBlocks($position) as $block) {
-            $position->getWorld()->setBlock($block, VanillaBlocks::OAK_LEAVES());
-        }
+        return VanillaBlocks::OAK_LEAVES();
     }
 
 }
