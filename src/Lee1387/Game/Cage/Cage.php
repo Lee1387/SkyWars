@@ -20,8 +20,6 @@ abstract class Cage
 
     }
 
-    abstract public function setBlocks(Vector3 $position): void;
-
     public function build(Position $position): void 
     {
         $this->transaction = new BlockTransaction($position->getWorld());
@@ -38,5 +36,7 @@ abstract class Cage
             $this->transaction = null;
         }
     }
+
+    abstract protected function setBlocks(Vector3 $position): void;
     
 }

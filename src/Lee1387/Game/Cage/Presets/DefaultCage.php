@@ -12,7 +12,7 @@ use Lee1387\Game\Cage\Cage;
 class DefaultCage extends Cage 
 {
 
-    public function setBlocks(Vector3 $position): void 
+    protected function setBlocks(Vector3 $position): void 
     {
         $block = $this->getFillingBlock();
 
