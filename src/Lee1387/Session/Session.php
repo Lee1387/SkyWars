@@ -172,7 +172,7 @@ class Session
 
     public function assignTeam(): void 
     {
-        foreach($this->game->getAvailableTeams() as $team) {
+        foreach($this->game->getTeams() as $team) {
             if(!$team->isFull()) {
                 $team->addMember($this);
                 return;
