@@ -46,4 +46,9 @@ class KitRegistry
         self::register("cannoneer", new Cannoneer());
         self::register("default", new DefaultKit());
     }
+
+    static private function register(string $name, Kit $kit): void
+    {
+        self::_registryRegister($name, $kit);
+    }
 }

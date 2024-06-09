@@ -94,4 +94,9 @@ class CageRegistry
         self::register("tree", new Tree());
         self::register("void", new VoidCage());
     }
+
+    static private function register(string $name, Cage $cage): void 
+    {
+        self::_registryRegister($name, $cage);
+    }
 }

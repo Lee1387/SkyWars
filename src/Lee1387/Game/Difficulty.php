@@ -9,5 +9,13 @@ enum Difficulty
 
     case NORMAL;
     case INSANE;
+
+    public function getDisplayName(): string 
+    {
+        return match($this) {
+            self::NORMAL => "Normal",
+            self::INSANE => "Insane"
+        };
+    }
     
 }

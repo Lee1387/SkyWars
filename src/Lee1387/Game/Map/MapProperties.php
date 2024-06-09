@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Lee1387\Game\Map;
 
 use pocketmine\math\Vector3;
-use pocketmine\world\World;
 
 trait MapProperties 
 {
@@ -13,7 +12,6 @@ trait MapProperties
     protected string $id;
     protected string $name;
 
-    protected World $waitingWorld;
     protected Vector3 $spectatorSpawnPosition;
     protected Mode $mode;
 
@@ -27,11 +25,6 @@ trait MapProperties
     public function getName(): string 
     {
         return $this->name;
-    }
-
-    public function getWaitingWorld(): World 
-    {
-        return $this->waitingWorld;
     }
 
     public function getSpectatorSpawnPosition(): Vector3
