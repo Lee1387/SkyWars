@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Lee1387\Game;
 
-use pocketmine\block\inventory\ChestInventory;
 use pocketmine\Server;
 use pocketmine\utils\Utils;
 use pocketmine\world\sound\Sound;
 use pocketmine\world\World;
 use pocketmine\world\WorldException;
+use Lee1387\Game\Chest\ChestInventory;
 use Lee1387\Game\Chest\GameChest;
 use Lee1387\Game\Map\Map;
 use Lee1387\Game\Stage\Stage;
@@ -168,7 +168,7 @@ class Game
     {
         if($this->isChestOpened($inventory)) {
             $chest = $this->openedChests[$chestId = spl_object_id($inventory)];
-            $chest->getFloatingTextParticle()->setInvisible();
+            $chest->hideFloatingTexts();
             $chest->updateFloatingText();
 
             unset($this->openedChests[$chestId]);
@@ -182,21 +182,36 @@ class Game
         $this->stage->onJoin($session);
     }
 
-    public function removePlayer(Session $session): void 
+    public function removePlayer(Session $session, bool $teleportToHub = true, bool $setSpectator = false): void 
     {
         unset($this->players[array_search($session, $this->players, true)]);
 
         $this->stage->onQuit($session);
+
+        if($teleportToHub) {
+            $session->teleportToHub();
+        }
+
+        if($setSpectator) {
+            $this->addSpectator($session);
+        } else {
+            $session->setGame(null);
+        }
     }
 
     public function addSpectator(Session $session): void 
     {
         $this->spectators[] = $session;
+
+        $session->giveSpectatorItems();
     }
 
     public function removeSpectator(Session $session): void 
     {
         unset($this->spectators[array_search($session, $this->spectators, true)]);
+
+        $session->setGame(null);
+        $session->teleportToHub();
     }
 
     public function broadcastMessage(MessageContainer $container): void 

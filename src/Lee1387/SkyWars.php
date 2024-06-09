@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace Lee1387;
 
+use pocketmine\block\tile\TileFactory;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\SingletonTrait;
+use Lee1387\Game\Chest\ChestTile;
 use Lee1387\Game\GameHeartbeat;
 use Lee1387\Game\GameManager;
 use Lee1387\Listener\GameListener;
+use Lee1387\Listener\ItemListener;
 use Lee1387\Listener\SessionListener;
 use Lee1387\Utils\Message\MessageManager;
 
@@ -32,10 +35,13 @@ class SkyWars extends PluginBase
     {
         $this->getServer()->getWorldManager()->loadWorld("world"); // just for testing
 
+        TileFactory::getInstance()->register(ChestTile::class, ["Chest", "minecraft:chest"]);
+
         $this->gameManager = new GameManager();
         $this->messageManager = new MessageManager();
 
         $this->registerListener(new GameListener());
+        $this->registerListener(new ItemListener());
         $this->registerListener(new SessionListener());
 
         $this->getScheduler()->scheduleRepeatingTask(new GameHeartbeat(), 20);

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Lee1387\Utils;
 
-use pocketmine\block\inventory\ChestInventory;
 use pocketmine\item\VanillaItems;
+use Lee1387\Game\Chest\ChestInventory;
 
 class InventoryUtils 
 {
