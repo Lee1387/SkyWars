@@ -6,7 +6,7 @@ namespace Lee1387\Utils;
 
 use pocketmine\utils\TextFormat;
 
-class ColourUtils
+class ColorUtils
 {
     
     public static function translate(string $message): string 

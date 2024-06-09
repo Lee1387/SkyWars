@@ -12,12 +12,12 @@ use pocketmine\item\VanillaItems;
 use Lee1387\Game\Kit\Kit;
 use Lee1387\Game\Kit\Rarity;
 
-class Armoursmith extends Kit 
+class Armorsmith extends Kit 
 {
 
     public function __construct() 
     {
-        parent::__construct("Armoursmith", Rarity::COMMON);
+        parent::__construct("Armorsmith", Rarity::COMMON);
     }
 
     protected function getNormalContents(): array
@@ -31,7 +31,7 @@ class Armoursmith extends Kit
         ];
     }
 
-    protected function getNormalArmourContents(): array
+    protected function getNormalArmorContents(): array
     {
         return [
             VanillaItems::DIAMOND_HELMET()
@@ -50,7 +50,7 @@ class Armoursmith extends Kit
         ];
     }
 
-    protected function getInsaneArmourContents(): array
+    protected function getInsaneArmorContents(): array
     {
         return [
             VanillaItems::DIAMOND_HELMET()

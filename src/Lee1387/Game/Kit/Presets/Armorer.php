@@ -8,27 +8,27 @@ use pocketmine\item\VanillaItems;
 use Lee1387\Game\Kit\Kit;
 use Lee1387\Game\Kit\Rarity;
 
-class Armourer extends Kit 
+class Armorer extends Kit 
 {
 
     public function __construct() 
     {
-        parent::__construct("Armourer", Rarity::RARE);
+        parent::__construct("Armorer", Rarity::RARE);
     }
 
-    protected function getNormalArmourContents(): array
+    protected function getNormalArmorContents(): array
     {
         return [
-            VanillaItems::GOLDEN_CHESTPLATE(),
-            VanillaItems::GOLDEN_LEGGINGS()
+            1 => VanillaItems::GOLDEN_CHESTPLATE(),
+            2 => VanillaItems::GOLDEN_LEGGINGS()
         ];
     }
 
-    protected function getInsaneArmourContents(): array
+    protected function getInsaneArmorContents(): array
     {
         return [
-            VanillaItems::DIAMOND_CHESTPLATE(),
-            VanillaItems::IRON_LEGGINGS()
+            1 => VanillaItems::DIAMOND_CHESTPLATE(),
+            2 => VanillaItems::IRON_LEGGINGS()
         ];
     }
 

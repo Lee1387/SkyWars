@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Lee1387\Game\Team;
 
 use pocketmine\math\Vector3;
-use Lee1387\Utils\ColourUtils;
+use Lee1387\Utils\ColorUtils;
 use function strtoupper;
 
 trait TeamProperties 
@@ -24,9 +24,9 @@ trait TeamProperties
         return $this->name;
     }
 
-    public function getColour(): string 
+    public function getColor(): string 
     {
-        return ColourUtils::translate("{" . strtoupper($this->name) . "}");
+        return ColorUtils::translate("{" . strtoupper($this->name) . "}");
     }
 
     public function getSpawnPoint(): Vector3 

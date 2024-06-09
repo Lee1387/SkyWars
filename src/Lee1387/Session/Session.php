@@ -7,7 +7,7 @@ namespace Lee1387\Session;
 use pocketmine\player\Player;
 use Lee1387\Game\Game;
 use Lee1387\Game\Team\Team;
-use Lee1387\Utils\ColourUtils;
+use Lee1387\Utils\ColorUtils;
 
 class Session 
 {
@@ -82,7 +82,7 @@ class Session
 
     public function message(string $message): void 
     {
-        $this->player->sendMessage(ColourUtils::translate($message));
+        $this->player->sendMessage(ColorUtils::translate($message));
     }
     
 }

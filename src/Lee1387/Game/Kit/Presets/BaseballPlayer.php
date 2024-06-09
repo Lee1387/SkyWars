@@ -25,7 +25,7 @@ class BaseballPlayer extends Kit
         ];
     }
 
-    protected function getNormalArmourContents(): array
+    protected function getNormalArmorContents(): array
     {
         return [
             VanillaItems::IRON_HELMET()->addEnchantment(new EnchantmentInstance(VanillaEnchantments::PROTECTION())),
@@ -39,7 +39,7 @@ class BaseballPlayer extends Kit
         ];
     }
 
-    protected function getInsaneArmourContents(): array
+    protected function getInsaneArmorContents(): array
     {
         return [
             VanillaItems::CHAINMAIL_HELMET()->addEnchantment(new EnchantmentInstance(VanillaEnchantments::PROTECTION(), 4)),

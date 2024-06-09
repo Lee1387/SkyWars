@@ -24,9 +24,9 @@ class Team
         $this->spawnPoint = $spawnPoint;
     }
 
-    public function getColouredName(): string 
+    public function getColoredName(): string 
     {
-        return $this->getColour() . $this->getName();
+        return $this->getColor() . $this->getName();
     }
 
     public function getFirstLetter(): string 
@@ -66,7 +66,7 @@ class Team
         // todo: give kit, apply perks, etc.
 
         $player = $session->getPlayer();
-        $player->setNameTag($this->getColouredName() . $this->getFirstLetter() . " " . $player->getName());
+        $player->setNameTag($this->getColoredName() . $this->getFirstLetter() . " " . $player->getName());
         $player->setGamemode(GameMode::SURVIVAL);
         $player->teleport(Position::fromObject($this->spawnPoint, $session->getGame()->getWorld()));
     }

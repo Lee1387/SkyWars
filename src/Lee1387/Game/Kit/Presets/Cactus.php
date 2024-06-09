@@ -27,10 +27,10 @@ class Cactus extends Kit
         ];
     }
 
-    protected function getNormalArmourContents(): array
+    protected function getNormalArmorContents(): array
     {
         return [
-            VanillaItems::LEATHER_TUNIC()
+            1 => VanillaItems::LEATHER_TUNIC()
                 ->addEnchantment(new EnchantmentInstance(VanillaEnchantments::THORNS(), 5))
                 ->addEnchantment(new EnchantmentInstance(VanillaEnchantments::UNBREAKING(), 3))
         ];
@@ -44,13 +44,13 @@ class Cactus extends Kit
         ];
     }
 
-    protected function getInsaneArmourContents(): array
+    protected function getInsaneArmorContents(): array
     {
         return [
-            VanillaItems::LEATHER_TUNIC()
+            1 => VanillaItems::LEATHER_TUNIC()
                 ->addEnchantment(new EnchantmentInstance(VanillaEnchantments::THORNS(), 5))
                 ->addEnchantment(new EnchantmentInstance(VanillaEnchantments::UNBREAKING(), 3)),
-            VanillaItems::LEATHER_PANTS()
+            2 => VanillaItems::LEATHER_PANTS()
                 ->addEnchantment(new EnchantmentInstance(VanillaEnchantments::THORNS(), 3))
                 ->addEnchantment(new EnchantmentInstance(VanillaEnchantments::UNBREAKING(), 3)),
         ];

@@ -25,7 +25,7 @@ class Batguy extends Kit
         ];
     }
 
-    protected function getNormalArmourContents(): array
+    protected function getNormalArmorContents(): array
     {
         return [
             VanillaItems::LEATHER_CAP(),
@@ -42,7 +42,7 @@ class Batguy extends Kit
         ];
     }
 
-    protected function getInsaneArmourContents(): array
+    protected function getInsaneArmorContents(): array
     {
         $protection = new EnchantmentInstance(VanillaEnchantments::PROTECTION(), 2);
         return [
