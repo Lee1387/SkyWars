@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Lee1387\Game\Stage;
 
 use pocketmine\player\GameMode;
-use Lee1387\Session\Scoreboard\GameScoreboard;
+use Lee1387\Session\Scoreboard\Layout\GameLayout;
 use Lee1387\Session\Session;
 use Lee1387\Utils\Message\MessageContainer;
 
@@ -19,7 +19,7 @@ class PlayingStage extends Stage
 
     public function onJoin(Session $session): void 
     {
-        $session->setScoreboard(new GameScoreboard($session));
+        $session->setScoreboardLayout(new GameLayout());
         $session->getSelectedKit()->apply($session);
         $session->getSelectedCage()->destroy($this->game->getWorld());
 

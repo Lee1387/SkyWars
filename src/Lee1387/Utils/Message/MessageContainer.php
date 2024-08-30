@@ -28,7 +28,7 @@ class MessageContainer
         return $this->arguments;
     }
 
-    public function getMessage(): string 
+    public function getMessage(): string|array
     {
         return SkyWars::getInstance()->getMessageManager()->getMessage($this);
     }

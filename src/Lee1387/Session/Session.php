@@ -18,6 +18,8 @@ use Lee1387\Game\Kit\KitRegistry;
 use Lee1387\Game\Stage\EndingStage;
 use Lee1387\Game\Team\Team;
 use Lee1387\Item\SkyWarsItemRegistry;
+use Lee1387\Session\Scoreboard\Layout\Layout;
+use Lee1387\Session\Scoreboard\Layout\LobbyLayout;
 use Lee1387\Session\Scoreboard\LobbyScoreboard;
 use Lee1387\Session\Scoreboard\Scoreboard;
 use Lee1387\Utils\Message\MessageContainer;
@@ -27,6 +29,7 @@ class Session
 
     private Player $player;
     private Scoreboard $scoreboard;
+    private Statistics $statistics;
 
     private ?Game $game = null;
     private ?Team $team = null;
@@ -46,6 +49,9 @@ class Session
     public function __construct(Player $player)
     {
         $this->player = $player;
+        $this->scoreboard = new Scoreboard($this);
+
+        $this->statistics = new Statistics();
         $this->selectedKit = KitRegistry::DEFAULT(); // TODO: Get this from the database
         $this->selectedCage = CageRegistry::DEFAULT(); // TODO: Get this from the database
     }
@@ -67,6 +73,11 @@ class Session
             return $this->team->getColor() . $username;
         }
         return $username;
+    }
+
+    public function getStatistics(): Statistics
+    {
+        return $this->statistics;
     }
 
     public function getGame(): ?Game 
@@ -140,9 +151,9 @@ class Session
         return $this->hasGame() and $this->game->isSpectator($this);
     }
 
-    public function setScoreboard(Scoreboard $scoreboard): void 
+    public function setScoreboardLayout(Layout $layout): void 
     {
-        $this->scoreboard = $scoreboard;
+        $this->scoreboard->setLayout($layout);
     }
 
     public function setGame(?Game $game): void 
@@ -204,7 +215,7 @@ class Session
 
     public function updateScoreboard(): void 
     {
-        $this->scoreboard->show();
+        $this->scoreboard->update();
     }
 
     public function updateCompassDirection(): void 
@@ -263,7 +274,7 @@ class Session
 
         $this->clearInventories();
         $this->setTrackingSession(null);
-        $this->setScoreboard(new LobbyScoreboard($this));
+        $this->setScoreboardLayout(new LobbyLayout());
     }
 
     public function kill(int $cause): void 

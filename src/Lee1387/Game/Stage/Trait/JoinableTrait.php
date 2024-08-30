@@ -5,7 +5,7 @@ namespace Lee1387\Game\Stage\Trait;
 use pocketmine\player\GameMode;
 use pocketmine\world\Position;
 use Lee1387\Game\Game;
-use Lee1387\Session\Scoreboard\WaitingScoreboard;
+use Lee1387\Session\Scoreboard\Layout\WaitingLayout;
 use Lee1387\Session\Session;
 use Lee1387\Utils\Message\MessageContainer;
 
@@ -20,7 +20,7 @@ trait JoinableTrait
     public function onJoin(Session $session): void 
     {
         $session->setGame($this->game);
-        $session->setScoreboard(new WaitingScoreboard($session));
+        $session->setScoreboardLayout(new WaitingLayout());
         $session->assignTeam();
         $session->getSelectedCage()->build($position = Position::fromObject($session->getTeam()->getSpawnPoint(), $this->game->getWorld()));
         $session->giveWaitingItems();
